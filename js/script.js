@@ -1,6 +1,6 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
-
+//pics
 let bird = new Image();
 let bg = new Image();
 let fg = new Image();
@@ -8,7 +8,7 @@ let pipeUp = new Image();
 let pipeBottom = new Image();
 
 let score = 0;
-//pics
+
 bird.src = 'img/bird.png';
 bg.src = 'img/bg.png';
 fg.src = 'img/fg.png';
@@ -20,7 +20,7 @@ let score_audio = new Audio();
 fly.src = 'audio/fly.mp3';
 score_audio.src = 'audio/score.mp3';
 
-let gap = 90;
+let gap = 100;
 let xPos = 10;
 let yPos = 150;
 let grav = 1;
@@ -58,20 +58,19 @@ function draw() {
 		}
 	}
 
-
 	yPos += grav;
 	ctx.fillStyle = 'black';
 	ctx.font = '20px Verdana';
 	ctx.fillText('score: ' + score, 10, canvas.height - 20);
 
-	requestAnimationFrame(draw); //постоянный вызов функции
+	requestAnimationFrame(draw);
 }
-pipeBottom.onload = draw; // вызов функции при загрузки последней картинки
-document.addEventListener('keydown', moveUp); // слушатель события "нажатие клавиши"
+pipeBottom.onload = draw;
+document.addEventListener('keydown', moveUp);
 function moveUp() {
-	yPos -= 20;
+	yPos -= 25;
 	fly.play();
-} // действие при событии
+}
 
 function lose() {
 	ctx.fillStyle = 'black';
